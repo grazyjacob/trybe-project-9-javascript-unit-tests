@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 
+const average = require('../src/average');
 const circle = require('../src/circle');
 
 /*
@@ -23,7 +24,15 @@ const circle = require('../src/circle');
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contendo os valores esperados', () => {
-    fail('Teste vazio!');
+   expect(circle([NaN])).toEqual(undefined);
+   expect(typeof circle(1)).toBe('object');
+   expect(circle(1)).toEqual({radius: 1, area: 3.14, circumference: 6.28})
+   expect(circle([' '])).toBe(undefined);
+   expect(circle(2).circumference).toBe(12.56); 
+   expect(circle(3).area).toBeCloseTo(28.26);
+   expect(typeof circle(3)).toBe('object');
+  
+
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
     // Teste se circle retorna um objeto.
