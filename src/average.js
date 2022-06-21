@@ -10,7 +10,14 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-
-const average = () => {};
-
+// para fazer a arrow function presente no if utilizei esses conhecimentos: https://pt.stackoverflow.com/questions/554292/como-verificar-se-todos-os-valores-de-um-array-s%C3%A3o-number
+const average = (array) => {
+  let soma = 0;
+  if (array.length > 2 && array.every((elem) => typeof elem === 'number')) {
+    for (let index = 0; index < array.length; index += 1) {
+        soma += (array[index]);
+    } return Math.round(soma / array.length);
+  }
+  return undefined;
+};
 module.exports = average;
