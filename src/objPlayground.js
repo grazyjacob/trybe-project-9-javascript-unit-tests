@@ -29,13 +29,32 @@
   - Um objeto no formato { sum: 3, mult: 2, div: 0, sub: -1 };
 
   Comportamento:
-  arrayGenerator('keys', { sum: 3, mult: 2, div: 0, sub: -1 }) // [ 'sum', 'mult', 'div', 'sub' ]
+  arrayGenerator('keys', { sum: 3, mult: 2, div: 0, sub: -1 }) // 
   arrayGenerator('values', { sum: 3, mult: 2, div: 0, sub: -1 }) // [ 3, 2, 0, -1 ]
   arrayGenerator('entries', { sum: 3, mult: 2, div: 0, sub: -1 }) // [ [ 'sum', 3 ], [ 'mult', 2 ], [ 'div', 0 ], [ 'sub', -1 ] ]
 */
 
-const calculator = (number1, number2) => {};
+const calculator = (number1, number2) => {
+  let object = {
+    sum: number1 + number2,
+    mult: number1 * number2,
+    div: Math.trunc(number1 / number2),
+    sub: number1 - number2,
+  };
+  return object;
+};
 
-const arrayGenerator = (type, object) => {};
+const arrayGenerator = (type, object) => {
+if (type === 'keys') {
+let objKeys = Object.keys(object);
+return objKeys;
+} if (type === 'values') {
+  let objValues = Object.values(object);
+  return objValues;
+} if (type === 'entries') {
+  let objEntries = Object.entries(object);
+  return objEntries;
+}
+};
 
 module.exports = { calculator, arrayGenerator };
