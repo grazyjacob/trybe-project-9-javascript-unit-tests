@@ -93,11 +93,16 @@
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`. 
   
   const createMenu = (objetoRetornado) => {
-     const objeto = { 
-   fetchMenu: () => objetoRetornado,
-   consumption: [],
+     const menu = { 
+        fetchMenu: () => objetoRetornado,
+        consumption: [],
+        order: (comida) => menu.consumption.push(comida),
+        pay: () => {
+        let soma = menu.consumption.reduce((acumulator, valor) => acumulator + valor);
+        return soma + (soma * 0.1);
+      }, 
   };
-  return objeto.fetchMenu();
+  return menu;
 }; 
 
   module.exports = createMenu;
